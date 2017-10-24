@@ -24,7 +24,7 @@
         android:textAlignment="center"
         android:textSize="20dp"
         />
-</LinearLayout>
+    </LinearLayout>
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"

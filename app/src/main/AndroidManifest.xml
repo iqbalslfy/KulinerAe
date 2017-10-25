@@ -16,7 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.Setting"></activity>
+        <activity android:name=".Activity.Setting" />
+        <activity android:name=".Fragment.FragmentSatu" />
+        <activity android:name=".Fragment.FragmentDua" />
+        <activity android:name=".Fragment.FragmentTiga"></activity>
     </application>
 
 </manifest>

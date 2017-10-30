@@ -36,10 +36,8 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar mToolbar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    private RecyclerView recyclerView;
-    private RecyclerViewAdapter viewAdapter;
-    private RecyclerView.LayoutManager layoutManager;
-    private List<MenuItems> itemsList = new ArrayList<>();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,37 +86,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        runDataMenu();
-        recyclerView = (RecyclerView)findViewById(R.id.rc_menu);
-        recyclerView.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        viewAdapter = new RecyclerViewAdapter(itemsList);
-        recyclerView.setAdapter(viewAdapter);
-    }
-
-    private void runDataMenu() {
-        itemsList.add(new MenuItems("Menu 1"));
-        itemsList.add(new MenuItems("Menu 2"));
-        itemsList.add(new MenuItems("Menu 3"));
-        itemsList.add(new MenuItems("Menu 4"));
-        itemsList.add(new MenuItems("Menu 5"));
-        itemsList.add(new MenuItems("Menu 6"));
-        itemsList.add(new MenuItems("Menu 7"));
-        itemsList.add(new MenuItems("Menu 8"));
-        itemsList.add(new MenuItems("Menu 9"));
-        itemsList.add(new MenuItems("Menu 10"));
 
     }
+
+
 
     private void setupViewPager(ViewPager viewPager){
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new FragmentSatu(), "SATU");
-        adapter.addFrag(new FragmentDua(), "DUA");
-        adapter.addFrag(new FragmentTiga(), "TIGA");
-        adapter.addFrag(new FragmentSatu(), "EMPAT");
-        adapter.addFrag(new FragmentDua(), "LIMA");
-        adapter.addFrag(new FragmentTiga(), "ENAM");
+        adapter.addFrag(new FragmentSatu(), "BERANDA");
+        adapter.addFrag(new FragmentDua(), "MAKANAN");
+        adapter.addFrag(new FragmentTiga(), "CAKE");
+        adapter.addFrag(new FragmentSatu(), "MINUMAN");
+        adapter.addFrag(new FragmentDua(), "TERPOPULER");
         viewPager.setAdapter(adapter);
     }
 

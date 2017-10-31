@@ -11,17 +11,22 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import net.kulinerae.kulinerae.Data.MenuItems;
+import net.kulinerae.kulinerae.Data.MenuToko;
 import net.kulinerae.kulinerae.R;
+import net.kulinerae.kulinerae.RecyclerView.RecyclerViewAd_Toko;
 import net.kulinerae.kulinerae.RecyclerView.RecyclerViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class FragmentSatu extends Fragment {
-    private RecyclerView recyclerView;
+    private RecyclerView recyclerView, recyclerViewToko;
     private RecyclerViewAdapter viewAdapter;
-    private RecyclerView.LayoutManager layoutManager;
+    private RecyclerViewAd_Toko viewAdapterToko;
+    private RecyclerView.LayoutManager layoutManager, layoutManagerToko;
     private List<MenuItems> itemsList = new ArrayList<>();
+    private List<MenuToko> tokoList = new ArrayList<>();
+
     public FragmentSatu() {
     }
 
@@ -35,13 +40,27 @@ public class FragmentSatu extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //return inflater.inflate(R.layout.fragment_satu, container, false );
         View view = inflater.inflate(R.layout.fragment_satu,container, false);
+
         runDataMenu();
+        runDataToko();
+
         recyclerView = view.findViewById(R.id.rc_menu);
+        recyclerViewToko = view.findViewById(R.id.rc_menu_toko);
+
         recyclerView.setHasFixedSize(true);
+        recyclerViewToko.setHasFixedSize(true);
+
         layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        layoutManagerToko = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+
+        recyclerViewToko.setLayoutManager(layoutManagerToko);
         recyclerView.setLayoutManager(layoutManager);
+
         viewAdapter = new RecyclerViewAdapter(itemsList);
+        viewAdapterToko = new RecyclerViewAd_Toko(tokoList);
+
         recyclerView.setAdapter(viewAdapter);
+        recyclerViewToko.setAdapter(viewAdapterToko);
 
         return view;
     }
@@ -58,4 +77,14 @@ public class FragmentSatu extends Fragment {
         itemsList.add(new MenuItems("CHINESE"));
 
     }
+
+    private void runDataToko(){
+        tokoList.add(new MenuToko(R.drawable.daebak, "Daebak Cafe"));
+        tokoList.add(new MenuToko(R.drawable.kedai, "Kedai Cafe"));
+        tokoList.add(new MenuToko(R.drawable.pencake, "Pencake Cafe"));
+        tokoList.add(new MenuToko(R.drawable.pondok, "Pondok Cafe"));
+        tokoList.add(new MenuToko(R.drawable.layar, "Layar Cafe"));
+    }
+
+
 }

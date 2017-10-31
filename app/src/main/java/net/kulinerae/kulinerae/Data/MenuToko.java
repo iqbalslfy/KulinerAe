@@ -8,8 +8,7 @@ public class MenuToko {
     private int Gambar;
     private String Nama_toko;
 
-    public MenuToko(){
-
+    public MenuToko() {
     }
 
     public MenuToko(int gambar, String nama_toko) {
